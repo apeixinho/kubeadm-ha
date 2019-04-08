@@ -553,6 +553,7 @@ $ systemctl enable keepalived && systemctl start keepalived
 - Pull the [https://github.com/cookeem/kubeadm-ha](https://github.com/cookeem/kubeadm-ha) code and put the kubeadm-ha code on the first master node `demo- 01.local` /root directory
 
 ```bash
+
 $ git clone https://github.com/cookeem/kubeadm-ha
 ```
 
@@ -1046,10 +1047,10 @@ $ kubectl completion bash > ~/.kube/completion.bash.inc
 
 ```bash
 
-# 允许master部署应用
+# Allow the master to deploy the app
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 
-# 安装kubernetes-dashboard
+# Install kubernetes-dashboard
 $ kubectl label nodes demo-01.local app=kube-system
 $ kubectl label nodes demo-02.local app=kube-system
 $ kubectl label nodes demo-03.local app=kube-system
@@ -1079,9 +1080,9 @@ ca.crt:     1025 bytes
 namespace:  11 bytes
 token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLTk2bTUyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJmZGU5YmQyMS01MTA4LTExZTktOGQ2OS0wODAwMjcxMmM5ZjIiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06YWRtaW4tdXNlciJ9.EkJE7RI89PdrDQrb8NMBGc7oOIlB3P2KEUUcKJO6jbun7YNW8ho_6vJUEgUuIgWoFqjb_jtMcuYHzw9Lo_Q8HsNih5a3GsuJcYFD7qFFOdroYf62FxAr82v8dYBmt2EzGy_yLK6SNibEeAIOFffosL7reIsVs3LcJMQTa2Q-aD9NrwXwdB3B90NZvzd1h6fjArObXKrwe5oeTLVgLFctXTV0hk9SNQxp6ptKpS4fxzMe8pzvI0Ft--FbG4vW2f0Cbd-hAAYi8eJyo65ndhQoq7-bYp2OFu6LbLnTCSPs8D10z0Wnv6o2RDA6Avgg7KT0M_zIRRiHubCJNDmwlTQk3Q
 
-# 安装heapster
+# Install heapster
 
-# 重建heapster-influxdb-amd64:v1.5.2镜像，修改/etc/config.toml文件
+# Rebuild the heapster-influxdb-amd64:v1.5.2 image and modify the /etc/config.toml file.
 $ docker run -ti --rm --entrypoint "/bin/sh" k8s.gcr.io/heapster-influxdb-amd64:v1.5.2
 sed -i "s/localhost/127.0.0.1/g" /etc/config.toml
 
